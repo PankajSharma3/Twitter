@@ -4,13 +4,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const dotenv = require('dotenv');
+const crypto = require('crypto');
+const sessionSecret = crypto.randomBytes(64).toString('hex');
 
 dotenv.config();
 const server = express();
 const port = process.env.PORT || 8080;
 
 server.use(session({
-    secret: 'my secret',
+    secret: sessionSecret,
     resave: false,
     saveUninitialized: true,
 }));
