@@ -10,6 +10,7 @@ const server = express();
 const port = process.env.PORT || 8080;
 
 server.use(session({
+    secret: 'my secret',
     resave: false,
     saveUninitialized: true,
 }));
