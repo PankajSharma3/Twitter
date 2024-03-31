@@ -188,6 +188,11 @@ server.get('/signup', (req, res) => {
     res.send(signup);
 });
 
+server.get('/',(req,res)=>{
+    res.setHeader('Content-Type','text/html');
+    res.send(home);
+})
+
 server.get('/home',(req,res)=>{
     res.setHeader('Content-Type','text/html');
     res.send(home);
